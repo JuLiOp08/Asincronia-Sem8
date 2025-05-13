@@ -1,6 +1,7 @@
-package com.example.eventosconwhereby.domain;
+package com.example.eventosconwhereby.domain.Listener;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.eventosconwhereby.domain.EmailService;
+import com.example.eventosconwhereby.domain.WelcomeEmailEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
