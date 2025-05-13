@@ -22,10 +22,9 @@ public class OrderController {
     }
 
     @PostMapping
-    public String createOrder(@RequestParam String orderId, @RequestParam String email, @RequestParam String productList) {
+    public void createOrder(@RequestParam String orderId, @RequestParam String email, @RequestParam String productList) {
         // Publicando el evento OrderCreatedEvent
         OrderCreatedEvent event = new OrderCreatedEvent(this, orderId, email, productList);
         eventPublisher.publishEvent(event);
-        return "Evento " + event + " creado";
     }
 }
