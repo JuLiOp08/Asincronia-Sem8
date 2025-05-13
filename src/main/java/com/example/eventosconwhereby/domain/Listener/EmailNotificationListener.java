@@ -16,7 +16,7 @@ public class EmailNotificationListener {
         logger.info("Enviando correo a: {} - Pedido ID: {} - Productos: {}",
             event.getEmail(),
             event.getOrderId(),
-            event.getProductList());
+            event.getProducts());
         logger.info("[EmailNotification] Evento manejado por EmailNotificationListener correctamente.");
     }
 }

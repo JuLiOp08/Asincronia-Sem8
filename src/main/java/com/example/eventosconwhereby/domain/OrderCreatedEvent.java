@@ -2,19 +2,21 @@ package com.example.eventosconwhereby.domain;
 
 import lombok.Getter;
 import org.springframework.context.ApplicationEvent;
+import java.util.List;
 
 @Getter
-
 public class OrderCreatedEvent extends ApplicationEvent {
-    private final String orderId;
-    private final String email;
-    private final String productList;
 
-    public OrderCreatedEvent(Object source, String orderId, String email, String productList) {
+    private final Long orderId;
+    private final String email;
+    private final List<String> products;
+
+    public OrderCreatedEvent(Object source, Long orderId, String email, List<String> products) {
         super(source);
         this.orderId = orderId;
         this.email = email;
-        this.productList = productList;
+        this.products = products;
     }
+
 }
 
