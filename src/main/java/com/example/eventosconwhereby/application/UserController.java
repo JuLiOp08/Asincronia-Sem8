@@ -1,9 +1,7 @@
 package com.example.eventosconwhereby.application;
 
-import com.example.eventosconwhereby.domain.User;
 import com.example.eventosconwhereby.domain.WelcomeEmailEvent;
 import com.example.eventosconwhereby.infrastrucutre.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
