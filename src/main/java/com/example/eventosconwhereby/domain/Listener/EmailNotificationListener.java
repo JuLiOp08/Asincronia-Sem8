@@ -1,5 +1,6 @@
 package com.example.eventosconwhereby.domain.Listener;
 
+import com.example.eventosconwhereby.domain.OrderCreatedEvent;
 import org.springframework.context.event.EventListener;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -12,6 +13,6 @@ public class EmailNotificationListener {
         logger.info("Enviando correo a: {} - Pedido ID: {} - Productos: {}", 
             event.getEmail(), 
             event.getOrderId(), 
-            event.getProducts());
+            event.getProductList());
     }
 }
