@@ -1,5 +1,6 @@
 package com.example.eventosconwhereby.application;
 
+import com.example.eventosconwhereby.domain.User;
 import com.example.eventosconwhereby.domain.WelcomeEmailEvent;
 import com.example.eventosconwhereby.infrastrucutre.UserRepository;
 import org.springframework.context.ApplicationEventPublisher;
