@@ -14,7 +14,6 @@ import java.util.Random;
 @RequestMapping("/orders")
 public class OrderController {
 
-
     private final ApplicationEventPublisher eventPublisher;
 
     @Autowired
@@ -27,6 +26,6 @@ public class OrderController {
         // Publicando el evento OrderCreatedEvent
         OrderCreatedEvent event = new OrderCreatedEvent(this, orderId, email, productList);
         eventPublisher.publishEvent(event);
-        return "Evento publicado: " + event;
+        return "Evento " + event + " creado";
     }
 }
