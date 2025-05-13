@@ -17,7 +17,6 @@ public class User {
 
     private String email;
 
-    @OneToOne(mappedBy = "user")
-    @JsonIgnore
-    private Meeting meeting;
+
+
 }
