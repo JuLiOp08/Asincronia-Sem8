@@ -13,9 +13,9 @@ public class EmailNotificationListener {
 
     @EventListener
     public void handleOrderCreatedEvent(OrderCreatedEvent event) {
-        logger.info("Enviando correo a: {} - Pedido ID: {} - Productos: {}", 
-            event.getEmail(), 
-            event.getOrderId(), 
+        logger.info("Enviando correo a: {} - Pedido ID: {} - Productos: {}",
+            event.getEmail(),
+            event.getOrderId(),
             event.getProductList());
         logger.info("[EmailNotification] Evento manejado por EmailNotificationListener correctamente.");
     }
