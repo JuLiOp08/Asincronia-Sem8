@@ -4,9 +4,12 @@ import com.example.eventosconwhereby.domain.OrderCreatedEvent;
 import org.springframework.context.event.EventListener;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.stereotype.Component;
 
+@Component
 public class EmailNotificationListener {
     private static final Logger logger = LogManager.getLogger(EmailNotificationListener.class);
+
 
     @EventListener
     public void handleOrderCreatedEvent(OrderCreatedEvent event) {
@@ -14,5 +17,6 @@ public class EmailNotificationListener {
             event.getEmail(), 
             event.getOrderId(), 
             event.getProductList());
+        logger.info("[EmailNotification] Evento manejado por EmailNotificationListener correctamente.");
     }
 }

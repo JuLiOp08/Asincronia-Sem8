@@ -15,5 +15,7 @@ public class AuditLogListener {
     public void handleOrderCreatedEvent(OrderCreatedEvent event) {
         logger.info("[AuditLog] Pedido registrado: ID={}, Email={}, Productos={}",
                 event.getOrderId(), event.getEmail(), event.getProductList());
+        logger.info("[AuditLog] Evento manejado por AuditLogListener correctamente.");
     }
+
 }
