@@ -4,6 +4,7 @@ package com.example.eventosconwhereby.domain;
 import jakarta.persistence.*;
 import lombok.Data;
 
+
 @Entity
 @Data
 public class Producto {
@@ -11,17 +12,20 @@ public class Producto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String name;
     private int stock;
 
-    public Producto(String name_, int stock_) {
-        this.name = name_;
-        this.stock = stock_;
+    // ✅ Constructor por defecto (necesario para JPA)
+    public Producto() {}
+
+    // ✅ Constructor con parámetros
+    public Producto(String name, int stock) {
+        this.name = name;
+        this.stock = stock;
     }
 
     public void reduceStock(int amount) {
-        if (stock - amount >= 0) {
+        if (this.stock - amount >= 0) {
             this.stock -= amount;
         } else {
             throw new IllegalArgumentException("No hay suficiente stock disponible.");

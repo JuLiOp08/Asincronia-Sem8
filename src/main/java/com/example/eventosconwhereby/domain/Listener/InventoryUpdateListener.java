@@ -28,11 +28,6 @@ public class InventoryUpdateListener {
         List<String> products = event.getProducts();
 
         for (String productName : products) {
-            stockRepository.save(new Producto(productName, 3));
-        }
-        
-        for (String productName : products) {
-             // Asegurarse de que el producto existe en la base de datos
             stockRepository.findByName(productName).ifPresentOrElse(
                     product -> {
                         int beforeStock = product.getStock();
@@ -40,7 +35,12 @@ public class InventoryUpdateListener {
                         stockRepository.save(product);
                         logger.info("[InventoryUpdate] Stock reducido para producto: {}. Stock antes: {}, Stock después: {}", product.getName(), beforeStock, product.getStock());
                     },
-                    () -> logger.warn("[InventoryUpdate] Producto no encontrado: {}", productName)
+                    () -> {
+                        logger.warn("[InventoryUpdate] Producto no encontrado: {}. Creando producto con stock inicial.", productName);
+                        Producto newProduct = new Producto(productName, 10); // Stock inicial de 10
+                        stockRepository.save(newProduct);
+                        logger.info("[InventoryUpdate] Producto creado: {}. Stock inicial: 10.", productName);
+                    }
             );
         }
 
